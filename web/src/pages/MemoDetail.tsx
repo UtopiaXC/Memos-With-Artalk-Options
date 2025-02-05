@@ -1,7 +1,7 @@
 import { Button } from "@usememos/mui";
 import { ArrowUpLeftFromCircleIcon, MessageCircleIcon } from "lucide-react";
 import { ClientError } from "nice-grpc-web";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import { toast } from "react-hot-toast";
 import { Link, useLocation, useParams } from "react-router-dom";
 import { MemoDetailSidebar, MemoDetailSidebarDrawer } from "@/components/MemoDetailSidebar";
@@ -18,6 +18,9 @@ import { WorkspaceMemoRelatedSetting, WorkspaceSettingKey } from "@/types/proto/
 import { cn } from "@/utils";
 import { useTranslate } from "@/utils/i18n";
 import { memoLink } from "@/utils/memo";
+import 'artalk/Artalk.css'
+import Artalk from 'artalk'
+
 
 const MemoDetail = () => {
   const t = useTranslate();
@@ -41,6 +44,30 @@ const MemoDetail = () => {
   const comments = commentRelations.map((relation) => memoStore.getMemoByName(relation.memo!.name)).filter((memo) => memo) as any as Memo[];
   const showCreateCommentButton = workspaceMemoRelatedSetting.enableComment && currentUser && !showCommentEditor;
 
+  const { pathname } = useLocation()
+  const artalk = useRef<Artalk>()
+
+  const handleContainerInit = useCallback(
+    (node: HTMLDivElement | null) => {
+      if (!node) {
+        return
+      }
+    
+      if (artalk.current) {
+        artalk.current.destroy()
+        artalk.current = undefined
+      }
+      artalk.current = Artalk.init({
+        el: node,
+        pageKey: pathname,
+        pageTitle: workspaceMemoRelatedSetting.artalkName,
+        server: workspaceMemoRelatedSetting.artalkUrl,
+        site: workspaceMemoRelatedSetting.artalkName,
+        darkMode: 'auto',
+      })
+    },
+    [pathname],
+  )
   // Prepare memo.
   useEffect(() => {
     if (memoName) {
@@ -52,6 +79,7 @@ const MemoDetail = () => {
       navigateTo("/404");
     }
   }, [memoName]);
+
 
   // Prepare memo comments.
   useEffect(() => {
@@ -155,6 +183,13 @@ const MemoDetail = () => {
                     />
                   ))}
                 </>
+              )}
+            </div>
+            <div className="w-full">
+              {workspaceMemoRelatedSetting.enableArtalk && (
+                <div className="w-full">
+                  <div ref={handleContainerInit}></div>
+                </div>
               )}
             </div>
             {showCommentEditor && (

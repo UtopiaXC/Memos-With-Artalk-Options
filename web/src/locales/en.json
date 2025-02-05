@@ -366,7 +366,10 @@
       "title": "Memo related settings",
       "enable-link-preview": "Enable link preview",
       "enable-memo-comments": "Enable memo comments",
-      "enable-memo-location": "Enable memo location",
+      "enable-memo-artalk": "Enable artalk in memo detail page.",
+      "artalk-url": "Your artalk url.(Please input whole URL such as https://your.artalk.com)",
+      "artalk-name": "Site name you set in your artalk.",
+      "enable-memo-location": "Enable memo location", 
       "content-lenght-limit": "Content length limit (Byte)",
       "reactions": "Reactions"
     },

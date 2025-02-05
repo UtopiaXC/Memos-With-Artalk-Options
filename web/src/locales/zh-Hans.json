@@ -304,7 +304,28 @@
       "server-name": "服务器名称",
       "removed-completed-task-list-items": "启用移除已办"
     },
-    "memo-related": "备忘录"
+    "memo-related": "备忘录",
+    "memo-related-settings": {
+      "title": "备忘相关",
+      "enable-link-preview": "允许链接预览",
+      "enable-memo-comments": "允许Memos内置评论（请不要与Artalk同时使用）",
+      "enable-memo-artalk": "允许外挂Artalk系统（请不要与内置评论同时使用）",
+      "artalk-url": "Artalk完整地址（例如：https://your.artalk.com）",
+      "artalk-name": "Artalk中设置的本站名称",
+      "enable-memo-location": "允许Memo添加定位", 
+      "content-lenght-limit": "每条Memo长度限制",
+      "reactions": "反应图标（Reactions）"
+    },
+    "workspace-section": {
+      "disallow-user-registration": "禁用注册",
+      "disallow-password-auth": "禁用密码登录",
+      "disallow-change-username": "禁止修改用户名",
+      "disallow-change-nickname": "禁止修改昵称",
+      "week-start-day": "每周的第一天",
+      "saturday": "周六",
+      "sunday": "周日",
+      "monday": "周一"
+    }
   },
   "tag": {
     "all-tags": "全部标签",

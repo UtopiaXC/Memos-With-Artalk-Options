@@ -19,3 +19,8 @@ dist
 
 # VSCode settings
 .vscode
+
+# node
+node_modules/**
+package-lock.json
+package.json

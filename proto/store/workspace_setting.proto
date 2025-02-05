@@ -117,4 +117,10 @@ message WorkspaceMemoRelatedSetting {
   repeated string reactions = 10;
   // disable markdown shortcuts
   bool disable_markdown_shortcuts = 11;
+  // enable_artalk enables Artalk.
+  bool enable_artalk = 12;
+  // artalk_url is artalk location
+  string artalk_url = 13;
+  // artalk_name is artalk location
+  string artalk_name = 14;
 }

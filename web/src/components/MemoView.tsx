@@ -186,13 +186,15 @@ const MemoView: React.FC<Props> = (props: Props) => {
                 )}
                 {currentUser && !isArchived && <ReactionSelector className="border-none w-auto h-auto" memo={memo} />}
               </div>
-              {!isInMemoDetailPage && (workspaceMemoRelatedSetting.enableComment || commentAmount > 0) && (
+              {true&&
+              // !isInMemoDetailPage && (workspaceMemoRelatedSetting.enableComment || commentAmount > 0) && 
+              (
                 <Link
                   className={cn(
                     "flex flex-row justify-start items-center hover:opacity-70",
-                    commentAmount === 0 && "invisible group-hover:visible",
+                    // commentAmount === 0 && "invisible group-hover:visible",
                   )}
-                  to={`${memoLink(memo.name)}#comments`}
+                  to={`${memoLink(memo.name)}`}
                   viewTransition
                   state={{
                     from: parentPage,

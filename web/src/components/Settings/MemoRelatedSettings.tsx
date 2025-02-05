@@ -89,13 +89,6 @@ const MemoRelatedSettings = () => {
         />
       </div>
       <div className="w-full flex flex-row justify-between items-center">
-        <span>{t("setting.memo-related-settings.enable-memo-comments")}</span>
-        <Switch
-          checked={memoRelatedSetting.enableComment}
-          onChange={(event) => updatePartialSetting({ enableComment: event.target.checked })}
-        />
-      </div>
-      <div className="w-full flex flex-row justify-between items-center">
         <span>{t("setting.memo-related-settings.enable-memo-location")}</span>
         <Switch
           checked={memoRelatedSetting.enableLocation}
@@ -115,6 +108,28 @@ const MemoRelatedSettings = () => {
           checked={memoRelatedSetting.disableMarkdownShortcuts}
           onChange={(event) => updatePartialSetting({ disableMarkdownShortcuts: event.target.checked })}
         />
+      </div>
+      <div className="w-full flex flex-row justify-between items-center">
+        <span>{t("setting.memo-related-settings.enable-memo-comments")}</span>
+        <Switch
+          checked={memoRelatedSetting.enableComment}
+          onChange={(event) => updatePartialSetting({ enableComment: event.target.checked })}
+        />
+      </div>
+      <div className="w-full flex flex-row justify-between items-center">
+        <span>{t("setting.memo-related-settings.enable-memo-artalk")}</span>
+        <Switch
+          checked={memoRelatedSetting.enableArtalk}
+          onChange={(event) => updatePartialSetting({ enableArtalk: event.target.checked })}
+        />
+      </div>
+      <div className="w-full flex flex-row justify-between items-center">
+        <span>{t("setting.memo-related-settings.artalk-url")}</span>
+        <Input type="text" value={memoRelatedSetting.artalkUrl} onChange={(event) => updatePartialSetting({ artalkUrl: event.target.value })}/>
+      </div>
+      <div className="w-full flex flex-row justify-between items-center">
+        <span>{t("setting.memo-related-settings.artalk-name")}</span>
+        <Input type="text" value={memoRelatedSetting.artalkName} onChange={(event) => updatePartialSetting({ artalkName: event.target.value })}/>
       </div>
       <div className="w-full flex flex-row justify-between items-center">
         <span>{t("setting.memo-related-settings.content-lenght-limit")}</span>

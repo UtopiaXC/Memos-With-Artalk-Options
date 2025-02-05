@@ -1,58 +1,29 @@
-# Memos - Open Source, Self-hosted, Your Notes, Your Way
+# Memos with Artalk
 
-<img align="right" height="96px" src="https://www.usememos.com/logo-rounded.png" alt="Memos" />
+This is a custom memos with artalk switch that user can easily attach artalk on their memos.  
 
-An open-source, self-hosted note-taking solution designed for seamless deployment and multi-platform access. Experience effortless plain text writing with pain-free, complemented by robust Markdown syntax support for enhanced formatting.
+这是一个基于[Memos]()的简单修改版，仅预埋了Artalk的DIV，并提供了几个选项供用户可以快速地在Memos配置Artalk评论系统。另外，对设置中部分没有汉化的内容进行了简单汉化。  
 
-<a href="https://www.usememos.com">Home Page</a> •
-<a href="https://www.usememos.com/blog">Blogs</a> •
-<a href="https://www.usememos.com/docs">Docs</a> •
-<a href="https://demo.usememos.com/">Live Demo</a>
+本项目起因：由于0.20以上Memos页面加载逻辑改变，原有通过添加JS代码来添加Artalk的方法已经失效。方便起见，我直接修改了对应部分的源代码来插入Artalk系统。  
 
-<p>
-  <a href="https://hub.docker.com/r/neosmemo/memos"><img alt="Docker pull" src="https://img.shields.io/docker/pulls/neosmemo/memos.svg"/></a>
-  <a href="https://discord.gg/tfPJa4UmAv"><img alt="Discord" src="https://img.shields.io/badge/discord-chat-5865f2?logo=discord&logoColor=f5f5f5" /></a>
-</p>
-
-![demo](https://www.usememos.com/demo.png)
-
-## Main Features
-
-- **Privacy First** 🏠: Take control of your data. All runtime data is securely stored in your local database.
-- **Create at Speed** ✍️: Save content as plain text for quick access, with Markdown support for fast formatting and easy sharing.
-- **Lightweight but Powerful** 🤲: Built with Go, React.js, and a compact architecture, our application delivers powerful performance in a lightweight package.
-- **Customizable** 🧩: Easily customize your server name, icon, description, system style, and execution scripts to make it uniquely yours.
-- **Open Source** 🦦: Memos embraces the future of open source, with all code available on GitHub for transparency and collaboration.
-- **Free to Use** 💸: Enjoy all features completely free, with no charges ever for any content.
-
-## Deploy with Docker in seconds
-
+# Installation
+安装方法与原版一致，请参考原版文档。  
+仅需将docker镜像改为以下镜像即可：
 ```bash
-docker run -d --name memos -p 5230:5230 -v ~/.memos/:/var/opt/memos neosmemo/memos:stable
+#Linux/amd64
+docker pull utopiaxc1025/memos-with-artalk:amd64-1.0
+
+#ARM
+docker pull utopiaxc1025/memos-with-artalk:arm-1.0
 ```
 
-> [!NOTE]
-> This command is only applicable for Unix/Linux systems. For Windows, please refer to the detailed [documentation](https://www.usememos.com/docs/install/container-install#docker-on-windows).
->
-> The `~/.memos/` directory will be used as the data directory on your local machine, while `/var/opt/memos` is the directory of the volume in Docker and should not be modified.
+# Version Updagrade
+理论上可以从官方镜像直接切换到本镜像而不会有什么影响，但是强烈不建议你这样做，如果出现任何。  
+  
+不保证本分支版本是否会同步原仓库主分支最新代码，使用本镜像前需谨慎。  
+  
+如果使用中存在任何BUG或问题，请在Issues中反馈，或协助提交代码，感谢。  
 
-Learn more about [other installation methods](https://www.usememos.com/docs/install).
-
-## Contribution
-
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. We greatly appreciate any contributions you make. Thank you for being a part of our community! 🥰
-
-## Sponsorship
-
-If you find Memos helpful, please consider sponsoring us. Your support will help us to continue developing and maintaining the project.
-
-❤️ Thanks to the following sponsors and backers: **[yourselfhosted](https://github.com/yourselfhosted)**, **[Burning_Wipf](https://github.com/KUKARAF)**, _[...see more](https://github.com/sponsors/usememos)_.
-
-## Star history
-
-[![Star History Chart](https://api.star-history.com/svg?repos=usememos/memos&type=Date)](https://star-history.com/#usememos/memos&Date)
-
-## Other Projects
-
-- [**Slash**](https://github.com/yourselfhosted/slash): An open source, self-hosted bookmarks and link sharing platform. Save and share your links very easily.
-- [**Gomark**](https://github.com/usememos/gomark): A markdown parser written in Go for Memos. And its [WebAssembly version](https://github.com/usememos/gomark-wasm) is also available.
+# Demo
+![评论测试](./demo/评论测试.png)
+![配置](./demo/Artalk配置界面.png)
